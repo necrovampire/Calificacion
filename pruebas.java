@@ -34,8 +34,7 @@ public class pruebas{
 		
 		System.out.print("AS\t" + "PP\t" + "TP\t" + "EF\t" + "NOTA\t" +"NL\n");
 		
-		Matricula = sc.nextLine();
-		Estudiante = sc.nextLine();
+		
 
 	}
 }
