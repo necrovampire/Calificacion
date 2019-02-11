@@ -28,13 +28,42 @@ public class pruebas{
 		Matricula = sc.nextLine();
 		System.out.print("Estudiante..: ");
 		Estudiante = sc.nextLine();
-		//Notas
 		System.out.print("\n");
-		
-		
-		System.out.print("AS\t" + "PP\t" + "TP\t" + "EF\t" + "NOTA\t" +"NL\n");
-		
-		
+		//Obtencion de calificaciones
+		System.out.print("Introduzca las siguientes calificaciones\n\n");
+		System.out.print("AS\t");
+		AS = sc.nextInt();
+		while (AS > 10 || AS < 0){
+			System.out.println("Vuelva a introducir la calificacion\n");
+			System.out.print("AS\t");
+			AS = sc.nextInt();
+			System.out.print("\n");
+			}
+			
+		System.out.print("PP\t");
+		PP = sc.nextInt();
+		while (PP>20) {
+			System.out.println("Vuelva a digitar la calificacion\n");
+			System.out.print("PP\t");
+			PP = sc.nextInt();
+			System.out.print("\n");
+			}
+		System.out.print("TP\t");
+		TP = sc.nextInt();
+		while (TP > 20){
+			System.out.println("Vuelva a digitar la calificacion\n");
+			System.out.print("TP\t");
+			TP = sc.nextInt();
+			System.out.print("\n");
+			}
+		System.out.print("EF\t");
+		TP = sc.nextInt();
+		while (EF > 50){
+			System.out.println("Vuelva a digitar la calificacion\n");
+			System.out.print("EF\t");
+			EF = sc.nextInt();
+			System.out.print("\n");
+			}
 
 	}
 }
