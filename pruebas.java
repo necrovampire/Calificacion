@@ -2,15 +2,19 @@ import java.util.Scanner;
 public class pruebas{
 	public static void main (String [] args){
 		Scanner sc = new Scanner (System.in);
+		
 		//Declaracion de variables
 		String Matricula;
 		String Estudiante; 	
-		int AS=0; //Asistencia
-		int PP=0; //Primer parcial
-		int TP=0; //Trabajo Practico
-		int EF=0; //Examen final
-		int NOTA=0; //Nota final
-		int NL=0; // Nota literal
+		
+		int ASISTENCIA=0; 
+		int PrimerParcial=0;
+		int TrabajoPractico=0; 
+		int ExamenFinal=0;
+		int NOTA=0;
+		int MatLongitud = 13; 
+		int EstLongitud = 8;
+		char Nl = ' ';
 		System.out.println("                          UNIVERSIDAD DOMINICANA O&M                           ");
 		System.out.println ("Departamento de registro" + "                              Reporte de calificaciones");
 		System.out.print("--------------------------------------------------------------------------------\n");
@@ -23,47 +27,105 @@ public class pruebas{
 		System.out.print("Edificio....:" + " IV- 4ta. Planta. Aula: 30\n");
 		System.out.print("Profesor....:" + " JOSE RAFAEL ROJAS\n");
 		System.out.print("********************************************************************************\n");
+		
 		//Datos del estudiante
 		System.out.print("Matricula...: ");
-		Matricula = sc.nextLine();
-		System.out.print("Estudiante..: ");
+		Matricula = sc.nextLine();	
+		
+		while (MatLongitud != Matricula.length()) {
+			System.out.println("Matricula incompleta. Volver a introducir\n");
+			System.out.print("Matricula...:");
+			Matricula = sc.nextLine();
+			}
+		
+		System.out.print("Estudiante...: ");
 		Estudiante = sc.nextLine();
 		System.out.print("\n");
-		//Obtencion de calificaciones
+		
+		while (EstLongitud != Estudiante.length()){
+			System.out.println("Por favor introducir nombre completo del estudiante\n");
+			System.out.print("Estudiante...:");
+			Estudiante = sc.nextLine();
+			}
+		
+	
+		
+		 //Obtencion de calificaciones
+		
 		System.out.print("Introduzca las siguientes calificaciones\n\n");
 		System.out.print("AS\t");
-		AS = sc.nextInt();
-		while (AS > 10 || AS < 0){
-			System.out.println("Vuelva a introducir la calificacion\n");
+		ASISTENCIA = sc.nextInt();
+		
+		while (ASISTENCIA > 10){
+			System.out.println("Calificacion dentro de el rango 0-20. Vuelva a introducir el valor\n");
 			System.out.print("AS\t");
-			AS = sc.nextInt();
+			ASISTENCIA = sc.nextInt();
 			System.out.print("\n");
-			}
+			} 
 			
 		System.out.print("PP\t");
-		PP = sc.nextInt();
-		while (PP>20) {
+		PrimerParcial = sc.nextInt();
+		
+		while (PrimerParcial>20) {
 			System.out.println("Vuelva a digitar la calificacion\n");
 			System.out.print("PP\t");
-			PP = sc.nextInt();
+			PrimerParcial = sc.nextInt();
 			System.out.print("\n");
 			}
 		System.out.print("TP\t");
-		TP = sc.nextInt();
-		while (TP > 20){
+		TrabajoPractico = sc.nextInt();
+
+		while (TrabajoPractico > 20){
 			System.out.println("Vuelva a digitar la calificacion\n");
 			System.out.print("TP\t");
-			TP = sc.nextInt();
+			TrabajoPractico = sc.nextInt();
 			System.out.print("\n");
 			}
 		System.out.print("EF\t");
-		TP = sc.nextInt();
-		while (EF > 50){
+		ExamenFinal = sc.nextInt();
+		
+		while (ExamenFinal > 50){
 			System.out.println("Vuelva a digitar la calificacion\n");
 			System.out.print("EF\t");
-			EF = sc.nextInt();
+			ExamenFinal = sc.nextInt();
 			System.out.print("\n");
 			}
-
+		NOTA = ASISTENCIA + PrimerParcial + TrabajoPractico + ExamenFinal;
+		
+		if (NOTA>=90){
+			Nl = 'A';
+			}
+			else if (NOTA>79){
+				Nl = 'B';
+				System.out.print(Nl);
+				}
+				else if (NOTA>74){
+					Nl = 'C';
+					}
+					else if (NOTA>69){
+						Nl='D';
+						}
+						else {
+							Nl='F';
+							}
+					
+		
+		
+		System.out.print("____________________________________________________\n");
+		System.out.print("AS\t" + "PP\t" + "TP\t" + "EX\t" + "NOTA\t" + "NL\n");
+		int array [];
+		array = new int [5];
+		
+		char array2 [];
+		array2 = new char[1];
+		
+		array [0] = ASISTENCIA;
+		array [1] = PrimerParcial;
+		array [2] = TrabajoPractico;
+		array [3] = ExamenFinal;
+		array [4] = NOTA;
+		array2 [0]=Nl;
+		System.out.print(array[0] + "\t" + array[1] + "\t" + array[2]+ "\t" + array[3] + "\t" + array[4] + "\t" + array2[0]);			
+		
 	}
 }
