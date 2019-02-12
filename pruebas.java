@@ -42,7 +42,7 @@ public class pruebas{
 		Estudiante = sc.nextLine();
 		System.out.print("\n");
 		
-		while (Estudiante.length() <= EstLongitud){
+		while (Estudiante.length() < EstLongitud){
 			System.out.println("Por favor introducir nombre completo del estudiante\n");
 			System.out.print("Estudiante...:");
 			Estudiante = sc.nextLine();
