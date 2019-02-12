@@ -1,20 +1,21 @@
 import java.util.Scanner;
 public class pruebas{
 	public static void main (String [] args){
-		Scanner sc = new Scanner (System.in);
+		Scanner entrada = new Scanner (System.in);
 		
 		//Declaracion de variables
 		String Matricula;
 		String Estudiante; 	
 		
-		int ASISTENCIA=0; 
-		int PrimerParcial=0;
-		int TrabajoPractico=0; 
-		int ExamenFinal=0;
-		int NOTA=0;
-		int MatLongitud = 13; 
-		int EstLongitud = 8;
-		char Nl = ' ';
+		Integer Asistencia=0; 
+		Integer PrimerParcial=0;
+		Integer TrabajoPractico=0; 
+		Integer ExamenFinal=0;
+		Integer Nota=0;
+		Integer LongitudMatricula = 13; 
+		Integer EstLongitud = 8;
+		String NotaLiteral = "";
+
 		System.out.println("                          UNIVERSIDAD DOMINICANA O&M                           ");
 		System.out.println ("Departamento de registro" + "                              Reporte de calificaciones");
 		System.out.print("--------------------------------------------------------------------------------\n");
@@ -30,64 +31,61 @@ public class pruebas{
 		
 		//Datos del estudiante
 		System.out.print("Matricula...: ");
-		Matricula = sc.nextLine();	
+		Matricula = entrada.nextLine();	
 		
-		while (MatLongitud != Matricula.length()) {
-			System.out.println("Matricula incompleta. Volver a introducir\n");
+		do {
+     			System.out.println("Matricula incompleta. Volver a introducir\n");
 			System.out.print("Matricula...:");
-			Matricula = sc.nextLine();
-			}
-		
-		System.out.print("Estudiante...: ");
-		Estudiante = sc.nextLine();
-		System.out.print("\n");
-		
-		while (Estudiante.length() < EstLongitud){
-			System.out.println("Por favor introducir nombre completo del estudiante\n");
+			Matricula = entrada.nextLine();
+			System.out.print("\n");
+		} while (Matricula.length() != LongitudMatricula);
+
+		do {
+     			System.out.println("Por favor introducir nombre completo del estudiante\n");
 			System.out.print("Estudiante...:");
-			Estudiante = sc.nextLine();
-			}
-		
+			Estudiante = entrada.nextLine();
+			System.out.print("\n");
+		} while (Estudiante.length() > 3);		
 	
 		
 		 //Obtencion de calificaciones
 		
 		System.out.print("Introduzca las siguientes calificaciones\n\n");
 		System.out.print("AS\t");
-		ASISTENCIA = sc.nextInt();
+		ASISTENCIA = entrada.nextInt();
 		
 		while (ASISTENCIA > 10){
 			System.out.println("Calificacion dentro de el rango 0-20. Vuelva a introducir el valor\n");
 			System.out.print("AS\t");
-			ASISTENCIA = sc.nextInt();
+			ASISTENCIA = entrada.nextInt();
 			System.out.print("\n");
 			} 
 			
 		System.out.print("PP\t");
-		PrimerParcial = sc.nextInt();
+		PrimerParcial = entrada.nextInt();
 		
 		while (PrimerParcial>20) {
 			System.out.println("Vuelva a digitar la calificacion\n");
 			System.out.print("PP\t");
-			PrimerParcial = sc.nextInt();
+			PrimerParcial = entrada.nextInt();
 			System.out.print("\n");
 			}
 		System.out.print("TP\t");
-		TrabajoPractico = sc.nextInt();
+		TrabajoPractico = entrada.nextInt();
 
 		while (TrabajoPractico > 20){
 			System.out.println("Vuelva a digitar la calificacion\n");
 			System.out.print("TP\t");
-			TrabajoPractico = sc.nextInt();
+			TrabajoPractico = entrada.nextInt();
 			System.out.print("\n");
 			}
 		System.out.print("EF\t");
-		ExamenFinal = sc.nextInt();
+		ExamenFinal = entrada.nextInt();
 		
 		while (ExamenFinal > 50){
 			System.out.println("Vuelva a digitar la calificacion\n");
 			System.out.print("EF\t");
-			ExamenFinal = sc.nextInt();
+			ExamenFinal = entrada.nextInt();
 			System.out.print("\n");
 			}
 		NOTA = ASISTENCIA + PrimerParcial + TrabajoPractico + ExamenFinal;
